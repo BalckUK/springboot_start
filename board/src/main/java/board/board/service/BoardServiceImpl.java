@@ -7,8 +7,10 @@ import org.springframework.stereotype.Service;
 
 import board.board.dto.BoardDto;
 import board.board.mapper.BoardMapper;
+import jakarta.transaction.Transactional;
 
 @Service
+@Transactional
 public class BoardServiceImpl implements BoardService{
 	
 	@Autowired
