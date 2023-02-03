@@ -8,12 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.servlet.ModelAndView;
 
 import board.board.dto.BoardDto;
 import board.board.service.BoardService;
 
 @Controller
+@RequestMapping("/board/")
 public class BoardController {
 	
 	private Logger log = LoggerFactory.getLogger(this.getClass());
@@ -23,33 +25,29 @@ public class BoardController {
 	
 	@RequestMapping("/")
 	public String home() throws Exception{
-		
-		log.debug("홈경로입니다");
-		
 		return "redirect:/board/openBoardList.do";
 	}
 	
-	@RequestMapping("/board/openBoardList.do")
+	@RequestMapping("openBoardList.do")
 	public ModelAndView openBoardList() throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardList");
 		List<BoardDto> list = boardService.selectBoardList();
 		mv.addObject("list", list);
-		
 		return mv;
 	}
 	
-	@RequestMapping("/board/openBoardWrite.do")
+	@RequestMapping("openBoardWrite.do")
 	public String openBoardWrite() throws Exception{
 		return "/board/boardWrite";
 	}
 	
-	@RequestMapping("/board/insertBoard.do")
+	@RequestMapping("insertBoard.do")
 	public String insertBoard(BoardDto board) throws Exception{
 		boardService.insertBoard(board);
 		return "redirect:/board/openBoardList.do";
 	}
 	
-	@RequestMapping("/board/openBoardDetail.do")
+	@RequestMapping("openBoardDetail.do")
 	public ModelAndView openBoardDetail(@RequestParam int boardIdx) throws Exception{
 		ModelAndView mv = new ModelAndView("/board/boardDetail");
 		
@@ -59,13 +57,13 @@ public class BoardController {
 		return mv;
 	}
 	
-	@RequestMapping("/board/updateBoard.do")
+	@RequestMapping("updateBoard.do")
 	public String updateBoard(BoardDto board) throws Exception{
 		boardService.updateBoard(board);
 		return "redirect:/board/openBoardList.do";
 	}
 	
-	@RequestMapping("/board/deleteBoard.do")
+	@RequestMapping("deleteBoard.do")
 	public String deleteBoard(int boardIdx) throws Exception{
 		boardService.deleteBoard(boardIdx);
 		return "redirect:/board/openBoardList.do";

@@ -2,6 +2,8 @@ package board.board.service;
 
 import java.util.List;
 
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+
 import board.board.dto.BoardDto;
 
 public interface BoardService {

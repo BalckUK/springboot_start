@@ -32,13 +32,13 @@ dependencies {
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.bgee.log4jdbc-log4j2', name: 'log4jdbc-log4j2-jdbc4.1', version: '1.16'
 	implementation 'org.springframework:spring-aop:6.0.3'
+	//implementation 'commons-io:commons-io:2.11.0'
+	//implementation 'commons-fileupload:commons-fileupload:1.4'
 	implementation 'commons-io:commons-io:2.8.0'
 	implementation 'commons-fileupload:commons-fileupload:1.4'
 	implementation 'org.springframework:spring-aspects:6.0.2'
-	//xss예방 - 네이버 filter
 	implementation 'com.navercorp.lucy:lucy-xss-servlet:2.0.0'
 	implementation 'com.navercorp.lucy:lucy-xss:1.6.3'
-	//StringEscapeUtils 를 사용하기 위해 commons-text 의존성 추가
 	implementation 'org.apache.commons:commons-text:1.8'
 }
 

@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<title>board</title>
 	<link rel="stylesheet" th:href="@{/css/style.css}"/>
-	<script src="https://code.jquery.com/jquery-3.6.3.js" integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
 </head>
 <body>
 	<div class="container">
 	    <h2>게시글 등록</h2>
-	    <form id="frm" name="frm" method="post" action="/board/insertBoard.do">
+<!-- 	    <form id="frm" name="frm" method="post" action="/board/insertBoard.do" enctype="multipart/form-data"> -->
+		<form id="frm" name="frm" method="post" action="/board/insertBoard.do" enctype=>
 	    	<table class="board_detail">
 	    		<tr>
 	    			<td>제목</td>
@@ -21,20 +21,9 @@
 	    			</td>
 	    		</tr>
 	    	</table>
+<!-- 	    	<input type="file" id="files" name="files" multiple="multiple"> -->
 	    	<input type="submit" id="submit" value="저장" class="btn">
 	    </form>
     </div>
 </body>
 </html>
-
-<script type="text/javascript">
-	$("#submit").on("click", function(){
-		if($("#title").val() == null || $("#title").val() == ""){
-			alert("제목을 입력하세요");
-			return false;
-		}else if($("#contents").val() == null || $("#contents").val() == ""){
-			alert("내용을 입력하세요");
-			return false;
-		}
-	})
-</script>
